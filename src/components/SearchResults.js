@@ -5,6 +5,15 @@ function SearchResults() {
     <div>
       <p>SearchResults</p>
     </div>
+      {/*
+      <Header>
+      <Navbar />
+      </Header>
+      <Filterbar />
+      <Filterbar2 />
+      <MovieList />
+      <LoadMore />
+      */}
   );
 }
 
