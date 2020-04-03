@@ -1,7 +1,7 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import SearchResults from './components/SearchResults';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import SearchResults from "./components/SearchResults";
 
 function App() {
   return (

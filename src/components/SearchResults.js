@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function SearchResults() {
   return (
@@ -6,6 +6,6 @@ function SearchResults() {
       <p>SearchResults</p>
     </div>
   );
-};
+}
 
 export default SearchResults;
