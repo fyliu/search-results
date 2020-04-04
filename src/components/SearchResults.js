@@ -1,6 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { Header, List } from "semantic-ui-react";
+import { Header, Icon, List, Menu } from "semantic-ui-react";
 
 const useStyles = createUseStyles({
   header: {
@@ -54,6 +54,7 @@ const useStyles = createUseStyles({
 
 function SearchResults() {
   const classes = useStyles();
+  const activeItem = 1;
   return (
     <>
       <div className={classes.root}>
@@ -63,58 +64,73 @@ function SearchResults() {
               Search Results
             </Header>
             <div className={classes.headRight}>
-              <List link className={classes.navBar}>
-                <List.Item as="a" content="All" />
-                <List.Item as="a" icon="film" content="Movies" />
-
-                <List.Item as="a" icon="tv" content="TV Shows" />
-                <List.Item as="a" icon="game" content="Games & Apps" />
-                <List.Item
+              <Menu borderless className={classes.navBar}>
+                <Menu.Item as="a" name="All" active={activeItem === "1"} />
+                <Menu.Item
+                  as="a"
+                  icon="film"
+                  name="Movies"
+                  active={activeItem === "2"}
+                />
+                <Menu.Item
+                  as="a"
+                  icon="tv"
+                  name="TV Shows"
+                  active={activeItem === "3"}
+                />
+                <Menu.Item
+                  as="a"
+                  icon="game"
+                  name="Games & Apps"
+                  active={activeItem === "4"}
+                />
+                <Menu.Item
                   as="a"
                   icon="comment alternate outline"
-                  content="Blog"
+                  name="Blog"
+                  active={activeItem === "5"}
                 />
-                <List.Item as="a" content="Other" />
-              </List>
-              <List horizontal link className={classes.listStyle}>
-                <List.Item as="a">
-                  <List.Icon name="th" />
-                </List.Item>
-                <List.Item as="a">
-                  <List.Icon name="th list" />
-                </List.Item>
-              </List>
+                <Menu.Item as="a" name="Other" active={activeItem === "6"} />
+              </Menu>
+              <Menu bornerless className={classes.listStyle}>
+                <Menu.Item as="a">
+                  <Icon name="th" />
+                </Menu.Item>
+                <Menu.Item as="a">
+                  <Icon name="th list" />
+                </Menu.Item>
+              </Menu>
             </div>
           </div>
           <div className={classes.resultsTools}>
-            <List horizontal link>
-              <List.Item as="a">
-                <List.Content>Filter</List.Content>
-                <List.Icon name="chevron down" />
-              </List.Item>
-              <List.Item as="a">
-                <List.Content>Popularity</List.Content>
-                <List.Icon name="chevron down" />
-              </List.Item>
-            </List>
+            <Menu horizontal link>
+              <Menu.Item as="a">
+                Filter&nbsp;
+                <Icon name="chevron down" />
+              </Menu.Item>
+              <Menu.Item as="a">
+                Popularity&nbsp;
+                <Icon name="chevron down" />
+              </Menu.Item>
+            </Menu>
           </div>
         </div>
         <div className={classes.resultsFiltersContainer}>
           <div className={classes.resultsFiltersRow}>
-            <List horizontal link className={classes.resultsFilters}>
-              <List.Item as="a">
-                <List.Content>Release Year</List.Content>
-                <List.Icon name="chevron down" />
-              </List.Item>
-              <List.Item as="a">
-                <List.Content>Genre</List.Content>
-                <List.Icon name="chevron down" />
-              </List.Item>
-              <List.Item as="a">
-                <List.Content>Rating</List.Content>
-                <List.Icon name="chevron down" />
-              </List.Item>
-            </List>
+            <Menu horizontal link className={classes.resultsFilters}>
+              <Menu.Item as="a">
+                Release Year&nbsp;
+                <Icon name="chevron down" />
+              </Menu.Item>
+              <Menu.Item as="a">
+                Genre&nbsp;
+                <Icon name="chevron down" />
+              </Menu.Item>
+              <Menu.Item as="a">
+                Rating&nbsp;
+                <Icon name="chevron down" />
+              </Menu.Item>
+            </Menu>
             <List horizontal link className={classes.resultsFiltersControls}>
               <List.Item as="a">
                 <List.Content>CLEAR FILTERS</List.Content>
