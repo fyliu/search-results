@@ -23,7 +23,7 @@ const useStyles = createUseStyles({
     justifyContent: "flex-end",
     alignItems: "flex-end",
   },
-  headerFilters: {
+  resultsTools: {
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
@@ -68,7 +68,7 @@ function SearchResults() {
               </div>
             </div>
           </div>
-          <div className={classes.headerFilters}>
+          <div className={classes.resultsTools}>
             <Button as="a">Filter</Button>
             <Button as="a">Popularity</Button>
           </div>
