@@ -1,6 +1,15 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { Button, Dropdown, Header, Icon, List, Menu } from "semantic-ui-react";
+import {
+  Button,
+  Container,
+  Dropdown,
+  Grid,
+  Header,
+  Icon,
+  List,
+  Menu,
+} from "semantic-ui-react";
 
 const useStyles = createUseStyles({
   header: {
@@ -138,10 +147,48 @@ function SearchResults() {
             </List>
           </div>
         </div>
+        <Container>
+          <Grid doubling columns={6}>
+            <Grid.Column>
+              <Icon name="cancel" />
+            </Grid.Column>
+            <Grid.Column>
+              <Icon name="cancel" />
+            </Grid.Column>
+            <Grid.Column>
+              <Icon name="cancel" />
+            </Grid.Column>
+            <Grid.Column>
+              <Icon name="cancel" />
+            </Grid.Column>
+            <Grid.Column>
+              <Icon name="cancel" />
+            </Grid.Column>
+            <Grid.Column>
+              <Icon name="cancel" />
+            </Grid.Column>
+            <Grid.Column>
+              <Icon name="cancel" />
+            </Grid.Column>
+            <Grid.Column>
+              <Icon name="cancel" />
+            </Grid.Column>
+            <Grid.Column>
+              <Icon name="cancel" />
+            </Grid.Column>
+            <Grid.Column>
+              <Icon name="cancel" />
+            </Grid.Column>
+            <Grid.Column>
+              <Icon name="cancel" />
+            </Grid.Column>
+            <Grid.Column>
+              <Icon name="cancel" />
+            </Grid.Column>
+          </Grid>
+        </Container>
       </div>
       {/*
-      <Filterbar />
-      <Filterbar2 />
       <MovieList />
       <LoadMore />
       */}
