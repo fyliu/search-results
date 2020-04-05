@@ -8,6 +8,8 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var searchRouter = require("./routes/search");
 
+const port = 5000;
+
 var app = express();
 
 // view engine setup
@@ -39,5 +41,7 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
+
+app.listen(port, () => console.log(`Server running on port ${port}`));
 
 module.exports = app;
