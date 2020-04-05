@@ -61,6 +61,11 @@ function SearchResults() {
       text: "Popularity",
       value: "Popularity",
     },
+    {
+      key: "Recent",
+      text: "Recent",
+      value: "Recent",
+    },
   ];
   return (
     <>
