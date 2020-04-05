@@ -1,6 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { Dropdown, Header, Icon, List, Menu } from "semantic-ui-react";
+import { Button, Dropdown, Header, Icon, List, Menu } from "semantic-ui-react";
 
 const useStyles = createUseStyles({
   header: {
@@ -54,7 +54,6 @@ const useStyles = createUseStyles({
 
 function SearchResults() {
   const classes = useStyles();
-  const activeItem = 1;
   const sortOptions = [
     {
       key: "Popularity",
@@ -76,40 +75,21 @@ function SearchResults() {
               Search Results
             </Header>
             <div className={classes.headRight}>
-              <Menu borderless className={classes.navBar}>
-                <Menu.Item as="a" name="All" active={activeItem === "1"} />
-                <Menu.Item
-                  as="a"
-                  icon="film"
-                  name="Movies"
-                  active={activeItem === "2"}
-                />
-                <Menu.Item
-                  as="a"
-                  icon="tv"
-                  name="TV Shows"
-                  active={activeItem === "3"}
-                />
-                <Menu.Item
-                  as="a"
-                  icon="game"
-                  name="Games & Apps"
-                  active={activeItem === "4"}
-                />
+              <Menu pointing="true" secondary="true" className={classes.navBar}>
+                <Menu.Item as="a" name="All" />
+                <Menu.Item as="a" icon="film" name="Movies" active />
+                <Menu.Item as="a" icon="tv" name="TV Shows" />
+                <Menu.Item as="a" icon="game" name="Games & Apps" />
                 <Menu.Item
                   as="a"
                   icon="comment alternate outline"
                   name="Blog"
-                  active={activeItem === "5"}
                 />
-                <Menu.Item as="a" name="Other" active={activeItem === "6"} />
-              </Menu>
-              <Menu bornerless className={classes.listStyle}>
-                <Menu.Item as="a">
-                  <Icon name="th" />
-                </Menu.Item>
-                <Menu.Item as="a">
-                  <Icon name="th list" />
+                <Menu.Item as="a" name="Other" />
+                <Menu.Item position="right">
+                  <Button basic color="black" as="a" icon="th"></Button>
+                  &nbsp; &nbsp;
+                  <Button basic color="black" as="a" icon="th list"></Button>
                 </Menu.Item>
               </Menu>
             </div>
