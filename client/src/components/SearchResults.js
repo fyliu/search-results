@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
 import {
   Button,
+  Card,
   Container,
   Dropdown,
   Grid,
   Header,
   Icon,
+  Image,
   List,
   Menu,
 } from "semantic-ui-react";
+import * as searchService from "../services/search.service";
 
 const useStyles = createUseStyles({
   header: {
@@ -63,6 +66,7 @@ const useStyles = createUseStyles({
 
 function SearchResults() {
   const classes = useStyles();
+  const [results, setResults] = useState([]);
   const sortOptions = [
     {
       key: "Popularity",
@@ -75,6 +79,18 @@ function SearchResults() {
       value: "Recent",
     },
   ];
+
+  useEffect(() => {
+    // call backend and set state
+    const getResults = async () => {
+      const resultsResponse = await searchService.getResults("movies");
+      console.log(resultsResponse);
+      setResults(resultsResponse.data);
+    };
+    console.log("useEffect");
+    getResults();
+  }, []);
+
   return (
     <>
       <div className={classes.root}>
@@ -149,47 +165,23 @@ function SearchResults() {
         </div>
         <Container>
           <Grid doubling columns={6}>
-            <Grid.Column>
-              <Icon name="cancel" />
-            </Grid.Column>
-            <Grid.Column>
-              <Icon name="cancel" />
-            </Grid.Column>
-            <Grid.Column>
-              <Icon name="cancel" />
-            </Grid.Column>
-            <Grid.Column>
-              <Icon name="cancel" />
-            </Grid.Column>
-            <Grid.Column>
-              <Icon name="cancel" />
-            </Grid.Column>
-            <Grid.Column>
-              <Icon name="cancel" />
-            </Grid.Column>
-            <Grid.Column>
-              <Icon name="cancel" />
-            </Grid.Column>
-            <Grid.Column>
-              <Icon name="cancel" />
-            </Grid.Column>
-            <Grid.Column>
-              <Icon name="cancel" />
-            </Grid.Column>
-            <Grid.Column>
-              <Icon name="cancel" />
-            </Grid.Column>
-            <Grid.Column>
-              <Icon name="cancel" />
-            </Grid.Column>
-            <Grid.Column>
-              <Icon name="cancel" />
-            </Grid.Column>
+            {results.map((result) => (
+              <Grid.Column key={result.coverImg}>
+                <Card>
+                  <Image
+                    src={"http://localhost:5000/images/" + result.coverImg}
+                    wrapped
+                    ui={false}
+                  />
+                  <Card.Meta>{result.category}</Card.Meta>
+                  <Card.Header>{result.title}</Card.Header>
+                </Card>
+              </Grid.Column>
+            ))}
           </Grid>
         </Container>
       </div>
       {/*
-      <MovieList />
       <LoadMore />
       */}
     </>
