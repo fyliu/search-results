@@ -1,6 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { Header, Icon, List, Menu } from "semantic-ui-react";
+import { Dropdown, Header, Icon, List, Menu } from "semantic-ui-react";
 
 const useStyles = createUseStyles({
   header: {
@@ -55,6 +55,13 @@ const useStyles = createUseStyles({
 function SearchResults() {
   const classes = useStyles();
   const activeItem = 1;
+  const sortOptions = [
+    {
+      key: "Popularity",
+      text: "Popularity",
+      value: "Popularity",
+    },
+  ];
   return (
     <>
       <div className={classes.root}>
@@ -108,10 +115,12 @@ function SearchResults() {
                 Filter&nbsp;
                 <Icon name="chevron down" />
               </Menu.Item>
-              <Menu.Item as="a">
-                Popularity&nbsp;
-                <Icon name="chevron down" />
-              </Menu.Item>
+              Sorted By: &nbsp;
+              <Dropdown
+                inline
+                options={sortOptions}
+                defaultValue={sortOptions[0].value}
+              />
             </Menu>
           </div>
         </div>
