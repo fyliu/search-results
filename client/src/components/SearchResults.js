@@ -178,6 +178,7 @@ function SearchResults() {
                   inline
                   options={sortOptions}
                   defaultValue={sortOptions[0].value}
+                  icon="chevron down"
                 />
               </Menu.Item>
             </Menu>
