@@ -10,6 +10,7 @@ import {
   Icon,
   Menu,
   Responsive,
+  Segment,
 } from "semantic-ui-react";
 import * as searchService from "../services/search.service";
 import ResultCard from "./ResultCard";
@@ -194,9 +195,9 @@ function SearchResults() {
 
   return (
     <>
-      <div className={classes.content}>
-        <div className={classes.header}>
-          <Container className={classes.headerTop}>
+      <Container className={classes.content}>
+        <Container className={classes.header}>
+          <Segment basic className={classes.headerTop}>
             <Header floated="left" size="huge" className={classes.pageTitle}>
               Search Results
             </Header>
@@ -246,8 +247,8 @@ function SearchResults() {
                 </Menu.Item>
               </Responsive>
             </Header>
-          </Container>
-          <div className={classes.resultsTools}>
+          </Segment>
+          <Segment basic className={classes.resultsTools}>
             <Menu secondary horizontal link>
               <Menu.Item as="a">
                 Filter&nbsp;
@@ -263,8 +264,8 @@ function SearchResults() {
                 />
               </Menu.Item>
             </Menu>
-          </div>
-        </div>
+          </Segment>
+        </Container>
         <Menu secondary className={classes.resultsFiltersRow}>
           <Menu
             secondary
@@ -350,7 +351,7 @@ function SearchResults() {
             LOAD MORE
           </Button>
         </div>
-      </div>
+      </Container>
     </>
   );
 }
