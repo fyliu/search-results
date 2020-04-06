@@ -258,6 +258,7 @@ function SearchResults() {
                 Sorted By: &nbsp;
                 <Dropdown
                   inline
+                  pointing
                   options={sortOptions}
                   defaultValue={sortOptions[0].value}
                   icon="chevron down"
@@ -277,14 +278,14 @@ function SearchResults() {
             <Dropdown
               text="Release Year&nbsp;"
               multiple
-              selction
+              pointing
               icon="chevron down"
             >
               <Dropdown.Menu>
                 <Dropdown.Item value="1992" content=<Checkbox label="1992" /> />
               </Dropdown.Menu>
             </Dropdown>
-            <Dropdown text="Genre&nbsp;" multiple selction icon="chevron down">
+            <Dropdown text="Genre&nbsp;" multiple pointing icon="chevron down">
               <Dropdown.Menu>
                 <Dropdown.Item
                   value="Action"
@@ -295,7 +296,7 @@ function SearchResults() {
             <Dropdown
               text="Rating&nbsp;"
               multiple
-              selction
+              pointing
               defaultOpen
               icon="chevron down"
             >
