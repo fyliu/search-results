@@ -3,6 +3,7 @@ import { createUseStyles } from "react-jss";
 import {
   Button,
   Card,
+  Checkbox,
   Container,
   Dropdown,
   Grid,
@@ -79,6 +80,33 @@ function SearchResults() {
       value: "Recent",
     },
   ];
+  const ratingOptions = [
+    {
+      text: "G",
+      value: "G",
+      content: <Checkbox label="G" />,
+    },
+    {
+      text: "PG",
+      value: "PG",
+      content: <Checkbox label="PG" />,
+    },
+    {
+      text: "PG-13",
+      value: "PG-13",
+      content: <Checkbox label="PG-13" />,
+    },
+    {
+      text: "R",
+      value: "R",
+      content: <Checkbox label="R" />,
+    },
+    {
+      text: "NC-17",
+      value: "NC-17",
+      content: <Checkbox label="NC-17" />,
+    },
+  ];
 
   useEffect(() => {
     // call backend and set state
@@ -143,10 +171,19 @@ function SearchResults() {
                 Genre&nbsp;
                 <Icon name="chevron down" />
               </Menu.Item>
-              <Menu.Item as="a">
-                Rating&nbsp;
-                <Icon name="chevron down" />
-              </Menu.Item>
+              <Dropdown
+                text="Rating&nbsp;"
+                multiple
+                selction
+                open
+                icon="chevron down"
+              >
+                <Dropdown.Menu>
+                  {ratingOptions.map((option) => (
+                    <Dropdown.Item key={option.value} {...option} />
+                  ))}
+                </Dropdown.Menu>
+              </Dropdown>
             </Menu>
             <List horizontal link className={classes.resultsFiltersControls}>
               <List.Item as="a">
