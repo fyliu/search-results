@@ -68,6 +68,13 @@ const useStyles = createUseStyles({
     justifyContent: "space-between",
     height: "35px",
   },
+  bottom: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-end",
+    justifyContent: "center",
+    height: "80px",
+  },
 });
 
 function SearchResults() {
@@ -241,9 +248,11 @@ function SearchResults() {
             ))}
           </Card.Group>
         </Container>
-        <Button basic color="black">
-          LOAD MORE
-        </Button>
+        <div className={classes.bottom}>
+          <Button basic color="black">
+            LOAD MORE
+          </Button>
+        </div>
       </div>
     </>
   );
