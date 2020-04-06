@@ -21,7 +21,7 @@ const useStyles = createUseStyles({
       "repeating-linear-gradient( 90deg, #f3f3f3, #f3f3f3 100px, #ffffff 100px, #ffffff 120px)",
     maxWidth: "1200px",
     margin: "auto",
-    paddingTop: "50px",
+    paddingTop: "3vw",
   },
   header: {
     display: "flex",
@@ -38,12 +38,34 @@ const useStyles = createUseStyles({
     maxHeight: "135px",
   },
   pageTitle: {
-    fontFamily: "Arial Black, Gadget, sans-serif",
-    fontSize: "5vw",
-    textTransform: "uppercase",
-    textAlign: "left",
-    padding: "20px",
-    lineHeight: "0.85",
+    fontFamily: "Arial Black, Gadget, sans-serif !important",
+    fontSize: "3vw !important",
+    textTransform: "uppercase !important",
+    textAlign: "left !important",
+    lineHeight: "0.85 !important",
+  },
+  pageTitleSmall: {
+    fontFamily: "Arial Black, Gadget, sans-serif !important",
+    fontSize: "4vw !important",
+    textTransform: "uppercase !important",
+    textAlign: "left !important",
+    lineHeight: "0.85 !important",
+  },
+  pageTitleTiny: {
+    fontFamily: "Arial Black, Gadget, sans-serif !important",
+    fontSize: "5vw !important",
+    textTransform: "uppercase !important",
+    textAlign: "left !important",
+    paddingTop: "10px !important",
+    lineHeight: "0.85 !important",
+  },
+  pageTitleExtraTiny: {
+    fontFamily: "Arial Black, Gadget, sans-serif !important",
+    fontSize: "6vw !important",
+    textTransform: "uppercase !important",
+    textAlign: "left !important",
+    paddingTop: "5px !important",
+    lineHeight: "0.85 !important",
   },
   headRight: {
     display: "flex",
@@ -198,55 +220,82 @@ function SearchResults() {
       <Container className={classes.content}>
         <Container className={classes.header}>
           <Segment basic className={classes.headerTop}>
-            <Header floated="left" size="huge" className={classes.pageTitle}>
+            <Responsive
+              minWidth={Responsive.onlyComputer.minWidth}
+              as={Header}
+              floated="left"
+              className={classes.pageTitle}
+            >
               Search Results
-            </Header>
-            <Header floated="right" className={classes.headRight}>
-              <Responsive
-                maxWidth={Responsive.onlyTablet.maxWidth}
-                as={Dropdown}
-                button
-                basic
-                color="black"
-                className="icon"
-                icon="bars"
-                direction="left"
-              >
-                <Dropdown.Menu>
-                  {categoryOptions.map((option) => (
-                    <Dropdown.Item key={option.value} {...option} />
-                  ))}
-                  <Dropdown.Divider />
-                  {listOptions.map((option) => (
-                    <Dropdown.Item key={option.value} {...option} />
-                  ))}
-                </Dropdown.Menu>
-              </Responsive>
-              <Responsive
-                as={Menu}
-                minWidth={Responsive.onlyComputer.minWidth}
-                pointing={true}
-                secondary={true}
-                stackable
-                className={classes.navBar}
-              >
-                <Menu.Item as="a" name="All" />
-                <Menu.Item as="a" icon="film" name="Movies" active />
-                <Menu.Item as="a" icon="tv" name="TV Shows" />
-                <Menu.Item as="a" icon="game" name="Games & Apps" />
-                <Menu.Item
-                  as="a"
-                  icon="comment alternate outline"
-                  name="Blog"
-                />
-                <Menu.Item as="a" name="Other" />
-                <Menu.Item position="right">
-                  <Button basic color="black" as="a" icon="th"></Button>
-                  &nbsp; &nbsp;
-                  <Button basic color="black" as="a" icon="th list"></Button>
-                </Menu.Item>
-              </Responsive>
-            </Header>
+            </Responsive>
+            <Responsive
+              maxWidth={Responsive.onlyComputer.minWidth - 1}
+              minWidth={Responsive.onlyTablet.minWidth}
+              as={Header}
+              floated="left"
+              className={classes.pageTitleSmall}
+            >
+              Search Results
+            </Responsive>
+            <Responsive
+              maxWidth={Responsive.onlyMobile.maxWidth}
+              minWidth={Responsive.onlyMobile.minWidth + 1}
+              as={Header}
+              floated="left"
+              className={classes.pageTitleTiny}
+            >
+              Search Results
+            </Responsive>
+            <Responsive
+              maxWidth={Responsive.onlyMobile.minWidth}
+              as={Header}
+              floated="left"
+              className={classes.pageTitleExtraTiny}
+            >
+              Search Results
+            </Responsive>
+            <Responsive
+              maxWidth={Responsive.onlyTablet.maxWidth}
+              as={Dropdown}
+              floated="right"
+              button
+              basic
+              color="black"
+              className="icon"
+              icon="bars"
+              direction="left"
+            >
+              <Dropdown.Menu>
+                {categoryOptions.map((option) => (
+                  <Dropdown.Item key={option.value} {...option} />
+                ))}
+                <Dropdown.Divider />
+                {listOptions.map((option) => (
+                  <Dropdown.Item key={option.value} {...option} />
+                ))}
+              </Dropdown.Menu>
+            </Responsive>
+            <Responsive
+              as={Menu}
+              floated="right"
+              minWidth={Responsive.onlyComputer.minWidth}
+              pointing={true}
+              secondary={true}
+              stackable
+              className={classes.navBar}
+            >
+              <Menu.Item as="a" name="All" />
+              <Menu.Item as="a" icon="film" name="Movies" active />
+              <Menu.Item as="a" icon="tv" name="TV Shows" />
+              <Menu.Item as="a" icon="game" name="Games & Apps" />
+              <Menu.Item as="a" icon="comment alternate outline" name="Blog" />
+              <Menu.Item as="a" name="Other" />
+              <Menu.Item position="right">
+                <Button basic color="black" as="a" icon="th"></Button>
+                &nbsp; &nbsp;
+                <Button basic color="black" as="a" icon="th list"></Button>
+              </Menu.Item>
+            </Responsive>
           </Segment>
           <Segment basic className={classes.resultsTools}>
             <Menu secondary horizontal link>
