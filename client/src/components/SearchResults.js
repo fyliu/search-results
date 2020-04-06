@@ -124,6 +124,23 @@ function SearchResults() {
       value: "Other",
     },
   ];
+  const listOptions = [
+    {
+      text: "Grid",
+      value: "Grid",
+      icon: {
+        name: "th",
+      },
+      active: "true",
+    },
+    {
+      text: "List",
+      value: "List",
+      icon: {
+        name: "th list",
+      },
+    },
+  ];
   const sortOptions = [
     {
       key: "Popularity",
@@ -194,6 +211,10 @@ function SearchResults() {
               >
                 <Dropdown.Menu>
                   {categoryOptions.map((option) => (
+                    <Dropdown.Item key={option.value} {...option} />
+                  ))}
+                  <Dropdown.Divider />
+                  {listOptions.map((option) => (
                     <Dropdown.Item key={option.value} {...option} />
                   ))}
                 </Dropdown.Menu>
