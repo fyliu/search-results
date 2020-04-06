@@ -95,12 +95,12 @@ function SearchResults() {
     {
       text: "PG",
       value: "PG",
-      content: <Checkbox label="PG" />,
+      content: <Checkbox label="PG" defaultChecked />,
     },
     {
       text: "PG-13",
       value: "PG-13",
-      content: <Checkbox label="PG-13" />,
+      content: <Checkbox label="PG-13" defaultChecked />,
     },
     {
       text: "R",
