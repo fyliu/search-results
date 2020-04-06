@@ -6,7 +6,6 @@ import {
   Checkbox,
   Container,
   Dropdown,
-  Grid,
   Header,
   Icon,
   Image,
@@ -215,21 +214,19 @@ function SearchResults() {
           </div>
         </div>
         <Container>
-          <Grid doubling columns={6}>
+          <Card.Group doubling itemsPerRow={6} stackable>
             {results.map((result) => (
-              <Grid.Column key={result.coverImg}>
-                <Card>
-                  <Image
-                    src={"http://localhost:5000/images/" + result.coverImg}
-                    wrapped
-                    ui={false}
-                  />
-                  <Card.Meta>{result.category}</Card.Meta>
-                  <Card.Header>{result.title}</Card.Header>
-                </Card>
-              </Grid.Column>
+              <Card key={result.coverImg}>
+                <Image
+                  src={"http://localhost:5000/images/" + result.coverImg}
+                  wrapped
+                  ui={false}
+                />
+                <Card.Meta>{result.category}</Card.Meta>
+                <Card.Header>{result.title}</Card.Header>
+              </Card>
             ))}
-          </Grid>
+          </Card.Group>
         </Container>
         <Button basic color="black">
           LOAD MORE
