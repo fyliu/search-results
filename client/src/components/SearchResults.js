@@ -8,11 +8,11 @@ import {
   Dropdown,
   Header,
   Icon,
-  Image,
   List,
   Menu,
 } from "semantic-ui-react";
 import * as searchService from "../services/search.service";
+import ResultCard from "./ResultCard";
 
 const useStyles = createUseStyles({
   content: {
@@ -234,15 +234,7 @@ function SearchResults() {
         <Container>
           <Card.Group doubling itemsPerRow={6} stackable>
             {results.map((result) => (
-              <Card key={result.coverImg}>
-                <Image
-                  src={"http://localhost:5000/images/" + result.coverImg}
-                  wrapped
-                  ui={false}
-                />
-                <Card.Meta>{result.category}</Card.Meta>
-                <Card.Header>{result.title}</Card.Header>
-              </Card>
+              <ResultCard result={result} />
             ))}
           </Card.Group>
         </Container>
