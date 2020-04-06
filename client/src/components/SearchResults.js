@@ -150,10 +150,14 @@ function SearchResults() {
             </Menu>
             <List horizontal link className={classes.resultsFiltersControls}>
               <List.Item as="a">
-                <List.Content>CLEAR FILTERS</List.Content>
+                <List.Content>
+                  <Button>CLEAR FILTERS</Button>
+                </List.Content>
               </List.Item>
               <List.Item as="a">
-                <List.Content>APPLY FILTERS</List.Content>
+                <List.Content>
+                  <Button>APPLY FILTERS</Button>
+                </List.Content>
               </List.Item>
               <List.Item as="a">
                 <List.Icon name="cancel" />
