@@ -1,12 +1,12 @@
 # search-results
-## Install and run in separate terminal instances
-1. Server
+## Install and run each in a separate terminal instance
+### Server
 ```
 cd <project root>
 npm install
 npm start
 ```
-2. Client
+### Client
 ```
 cd <project root>/client
 npm install
