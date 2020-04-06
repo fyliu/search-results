@@ -27,7 +27,6 @@ const useStyles = createUseStyles({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    maxHeight: "200px",
   },
   headerTop: {
     display: "flex",
@@ -35,7 +34,6 @@ const useStyles = createUseStyles({
     flexWrap: "nowrap",
     flexBasis: "1",
     justifyContent: "space-between",
-    maxHeight: "135px",
   },
   pageTitle: {
     fontFamily: "Arial Black, Gadget, sans-serif !important",
@@ -87,20 +85,17 @@ const useStyles = createUseStyles({
     flexDirection: "row",
     flexWrap: "nowrap",
     justifyContent: "flex-end",
-    minHeight: "35px",
   },
   resultsFiltersContainer: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    minHeight: "75px",
   },
   resultsFiltersRow: {
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
     justifyContent: "space-between",
-    minHeight: "35px",
   },
   bottom: {
     display: "flex",
@@ -316,79 +311,89 @@ function SearchResults() {
             </Menu>
           </Segment>
         </Container>
-        <Menu secondary className={classes.resultsFiltersRow}>
-          <Menu
-            secondary
-            link
-            stackable
-            floated="left"
-            className={classes.resultsFilters}
-          >
-            <Dropdown
-              text="Release Year&nbsp;"
-              multiple
-              pointing
-              icon="chevron down"
+        <Segment basic>
+          <Menu secondary className={classes.resultsFiltersRow}>
+            <Menu
+              secondary
+              link
+              stackable
+              floated="left"
+              className={classes.resultsFilters}
             >
-              <Dropdown.Menu>
-                <Dropdown.Item value="1992" content=<Checkbox label="1992" /> />
-              </Dropdown.Menu>
-            </Dropdown>
-            <Dropdown text="Genre&nbsp;" multiple pointing icon="chevron down">
-              <Dropdown.Menu>
-                <Dropdown.Item
-                  value="Action"
-                  content=<Checkbox label="Action" defaultChecked />
+              <Dropdown
+                text="Release Year&nbsp;"
+                multiple
+                pointing
+                icon="chevron down"
+              >
+                <Dropdown.Menu>
+                  <Dropdown.Item
+                    value="1992"
+                    content=<Checkbox label="1992" />
+                  />
+                </Dropdown.Menu>
+              </Dropdown>
+              <Dropdown
+                text="Genre&nbsp;"
+                multiple
+                pointing
+                icon="chevron down"
+              >
+                <Dropdown.Menu>
+                  <Dropdown.Item
+                    value="Action"
+                    content=<Checkbox label="Action" defaultChecked />
+                  />
+                </Dropdown.Menu>
+              </Dropdown>
+              <Dropdown
+                text="Rating&nbsp;"
+                multiple
+                pointing
+                defaultOpen
+                icon="chevron down"
+              >
+                <Dropdown.Menu>
+                  {ratingOptions.map((option) => (
+                    <Dropdown.Item key={option.value} {...option} />
+                  ))}
+                </Dropdown.Menu>
+              </Dropdown>
+            </Menu>
+            <Menu
+              secondary
+              link
+              stackable
+              floated="right"
+              className={classes.resultsFiltersControls}
+            >
+              <Menu.Item>
+                <Button
+                  as="a"
+                  basic
+                  color="black"
+                  compact
+                  content="CLEAR FILTERS"
                 />
-              </Dropdown.Menu>
-            </Dropdown>
-            <Dropdown
-              text="Rating&nbsp;"
-              multiple
-              pointing
-              defaultOpen
-              icon="chevron down"
-            >
-              <Dropdown.Menu>
-                {ratingOptions.map((option) => (
-                  <Dropdown.Item key={option.value} {...option} />
-                ))}
-              </Dropdown.Menu>
-            </Dropdown>
-          </Menu>
-          <Menu
-            secondary
-            link
-            stackable
-            floated="right"
-            className={classes.resultsFiltersControls}
-          >
-            <Menu.Item>
-              <Button
-                as="a"
+              </Menu.Item>
+              <Menu.Item>
+                <Button
+                  as="a"
+                  basic
+                  color="black"
+                  compact
+                  content="APPLY FILTERS"
+                />
+              </Menu.Item>
+              <Menu.Item
+                as="Button"
                 basic
                 color="black"
-                compact
-                content="CLEAR FILTERS"
-              />
-            </Menu.Item>
-            <Menu.Item>
-              <Button
-                as="a"
-                basic
-                color="black"
-                compact
-                content="APPLY FILTERS"
-              />
-            </Menu.Item>
-            <Menu.Item
-              as="Button"
-              basic
-              color="black"
-              icon="cancel"
-            ></Menu.Item>
+                icon="cancel"
+              ></Menu.Item>
+            </Menu>
           </Menu>
-        </Menu>
+        </Segment>
         <Container>
           <Card.Group doubling itemsPerRow={6} stackable>
             {results.map((result) => (
