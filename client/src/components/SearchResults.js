@@ -84,10 +84,8 @@ function SearchResults() {
     // call backend and set state
     const getResults = async () => {
       const resultsResponse = await searchService.getResults("movies");
-      console.log(resultsResponse);
       setResults(resultsResponse.data);
     };
-    console.log("useEffect");
     getResults();
   }, []);
 
@@ -100,7 +98,7 @@ function SearchResults() {
               Search Results
             </Header>
             <div className={classes.headRight}>
-              <Menu pointing="true" secondary="true" className={classes.navBar}>
+              <Menu pointing={true} secondary={true} className={classes.navBar}>
                 <Menu.Item as="a" name="All" />
                 <Menu.Item as="a" icon="film" name="Movies" active />
                 <Menu.Item as="a" icon="tv" name="TV Shows" />
