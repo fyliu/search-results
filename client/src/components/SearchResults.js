@@ -73,6 +73,7 @@ const useStyles = createUseStyles({
 function SearchResults() {
   const classes = useStyles();
   const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
   const sortOptions = [
     {
       key: "Popularity",
@@ -119,7 +120,9 @@ function SearchResults() {
       const resultsResponse = await searchService.getResults("movies");
       setResults(resultsResponse.data);
     };
+    setLoading(true);
     getResults();
+    setLoading(false);
   }, []);
 
   return (
@@ -234,7 +237,7 @@ function SearchResults() {
         <Container>
           <Card.Group doubling itemsPerRow={6} stackable>
             {results.map((result) => (
-              <ResultCard result={result} />
+              <ResultCard result={result} loading={loading} />
             ))}
           </Card.Group>
         </Container>
