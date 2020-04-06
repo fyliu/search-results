@@ -16,6 +16,12 @@ import {
 import * as searchService from "../services/search.service";
 
 const useStyles = createUseStyles({
+  content: {
+    background:
+      "repeating-linear-gradient( 90deg, #f3f3f3, #f3f3f3 100px, #ffffff 100px, #ffffff 120px)",
+    maxWidth: "1200px",
+    margin: "auto",
+  },
   header: {
     display: "flex",
     flexDirection: "column",
@@ -119,7 +125,7 @@ function SearchResults() {
 
   return (
     <>
-      <div className={classes.root}>
+      <div className={classes.content}>
         <div className={classes.header}>
           <div className={classes.headerTitle}>
             <Header as="h1" className={classes.pageTitle}>
