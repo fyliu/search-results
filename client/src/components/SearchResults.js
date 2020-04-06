@@ -152,23 +152,25 @@ function SearchResults() {
             </div>
           </div>
           <div className={classes.resultsTools}>
-            <Menu horizontal link>
+            <Menu secondary horizontal link>
               <Menu.Item as="a">
                 Filter&nbsp;
                 <Icon name="chevron down" />
               </Menu.Item>
-              Sorted By: &nbsp;
-              <Dropdown
-                inline
-                options={sortOptions}
-                defaultValue={sortOptions[0].value}
-              />
+              <Menu.Item>
+                Sorted By: &nbsp;
+                <Dropdown
+                  inline
+                  options={sortOptions}
+                  defaultValue={sortOptions[0].value}
+                />
+              </Menu.Item>
             </Menu>
           </div>
         </div>
         <div className={classes.resultsFiltersContainer}>
           <div className={classes.resultsFiltersRow}>
-            <Menu horizontal link className={classes.resultsFilters}>
+            <Menu secondary horizontal link className={classes.resultsFilters}>
               <Menu.Item as="a">
                 Release Year&nbsp;
                 <Icon name="chevron down" />
