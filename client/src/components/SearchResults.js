@@ -196,12 +196,16 @@ function SearchResults() {
             <List horizontal link className={classes.resultsFiltersControls}>
               <List.Item as="a">
                 <List.Content>
-                  <Button>CLEAR FILTERS</Button>
+                  <Button basic color="black">
+                    CLEAR FILTERS
+                  </Button>
                 </List.Content>
               </List.Item>
               <List.Item as="a">
                 <List.Content>
-                  <Button>APPLY FILTERS</Button>
+                  <Button basic color="black">
+                    APPLY FILTERS
+                  </Button>
                 </List.Content>
               </List.Item>
               <List.Item as="a">
@@ -227,7 +231,9 @@ function SearchResults() {
             ))}
           </Grid>
         </Container>
-        <Button>LOAD MORE</Button>
+        <Button basic color="black">
+          LOAD MORE
+        </Button>
       </div>
     </>
   );
