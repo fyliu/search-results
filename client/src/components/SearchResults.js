@@ -170,19 +170,37 @@ function SearchResults() {
         <div className={classes.resultsFiltersContainer}>
           <div className={classes.resultsFiltersRow}>
             <Menu secondary horizontal link className={classes.resultsFilters}>
-              <Menu.Item as="a">
-                Release Year&nbsp;
-                <Icon name="chevron down" />
-              </Menu.Item>
-              <Menu.Item as="a">
-                Genre&nbsp;
-                <Icon name="chevron down" />
-              </Menu.Item>
+              <Dropdown
+                text="Release Year&nbsp;"
+                multiple
+                selction
+                icon="chevron down"
+              >
+                <Dropdown.Menu>
+                  <Dropdown.Item
+                    value="1992"
+                    content=<Checkbox label="1992" />
+                  />
+                </Dropdown.Menu>
+              </Dropdown>
+              <Dropdown
+                text="Genre&nbsp;"
+                multiple
+                selction
+                icon="chevron down"
+              >
+                <Dropdown.Menu>
+                  <Dropdown.Item
+                    value="Action"
+                    content=<Checkbox label="Action" defaultChecked />
+                  />
+                </Dropdown.Menu>
+              </Dropdown>
               <Dropdown
                 text="Rating&nbsp;"
                 multiple
                 selction
-                open
+                defaultOpen
                 icon="chevron down"
               >
                 <Dropdown.Menu>
