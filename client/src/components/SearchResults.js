@@ -6,6 +6,7 @@ import {
   Checkbox,
   Container,
   Dropdown,
+  Header,
   Icon,
   Menu,
   Responsive,
@@ -25,7 +26,7 @@ const useStyles = createUseStyles({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    minHeight: "200px",
+    maxHeight: "200px",
   },
   headerTop: {
     display: "flex",
@@ -33,7 +34,7 @@ const useStyles = createUseStyles({
     flexWrap: "nowrap",
     flexBasis: "1",
     justifyContent: "space-between",
-    minHeight: "135px",
+    maxHeight: "135px",
   },
   pageTitle: {
     fontFamily: "Arial Black, Gadget, sans-serif",
@@ -195,9 +196,11 @@ function SearchResults() {
     <>
       <div className={classes.content}>
         <div className={classes.header}>
-          <div className={classes.headerTop}>
-            <h1 className={classes.pageTitle}>Search Results</h1>
-            <div className={classes.headRight}>
+          <Container className={classes.headerTop}>
+            <Header floated="left" size="huge" className={classes.pageTitle}>
+              Search Results
+            </Header>
+            <Header floated="right" className={classes.headRight}>
               <Responsive
                 maxWidth={Responsive.onlyTablet.maxWidth}
                 as={Dropdown}
@@ -242,8 +245,8 @@ function SearchResults() {
                   <Button basic color="black" as="a" icon="th list"></Button>
                 </Menu.Item>
               </Responsive>
-            </div>
-          </div>
+            </Header>
+          </Container>
           <div className={classes.resultsTools}>
             <Menu secondary horizontal link>
               <Menu.Item as="a">
