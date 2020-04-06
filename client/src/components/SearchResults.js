@@ -19,6 +19,7 @@ const useStyles = createUseStyles({
       "repeating-linear-gradient( 90deg, #f3f3f3, #f3f3f3 100px, #ffffff 100px, #ffffff 120px)",
     maxWidth: "1200px",
     margin: "auto",
+    paddingTop: "50px",
   },
   header: {
     display: "flex",
