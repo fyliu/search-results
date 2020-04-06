@@ -6,7 +6,6 @@ import {
   Checkbox,
   Container,
   Dropdown,
-  Header,
   Icon,
   List,
   Menu,
@@ -33,6 +32,14 @@ const useStyles = createUseStyles({
     flexWrap: "nowrap",
     justifyContent: "space-between",
     height: "135px",
+  },
+  pageTitle: {
+    fontFamily: "Arial Black, Gadget, sans-serif",
+    fontSize: "60px",
+    textTransform: "uppercase",
+    textAlign: "left",
+    padding: "20px",
+    lineHeight: "0.85",
   },
   headRight: {
     display: "flex",
@@ -137,9 +144,7 @@ function SearchResults() {
       <div className={classes.content}>
         <div className={classes.header}>
           <div className={classes.headerTitle}>
-            <Header as="h1" className={classes.pageTitle}>
-              Search Results
-            </Header>
+            <h1 className={classes.pageTitle}>Search Results</h1>
             <div className={classes.headRight}>
               <Menu pointing={true} secondary={true} className={classes.navBar}>
                 <Menu.Item as="a" name="All" />
