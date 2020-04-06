@@ -7,7 +7,6 @@ import {
   Container,
   Dropdown,
   Icon,
-  List,
   Menu,
   Responsive,
 } from "semantic-ui-react";
@@ -263,76 +262,79 @@ function SearchResults() {
             </Menu>
           </div>
         </div>
-        <div stackable className={classes.resultsFiltersContainer}>
-          <div className={classes.resultsFiltersRow}>
-            <Menu
-              secondary
-              horizontal
-              link
-              stackable
-              className={classes.resultsFilters}
+        <Menu secondary className={classes.resultsFiltersRow}>
+          <Menu
+            secondary
+            link
+            stackable
+            floated="left"
+            className={classes.resultsFilters}
+          >
+            <Dropdown
+              text="Release Year&nbsp;"
+              multiple
+              selction
+              icon="chevron down"
             >
-              <Dropdown
-                text="Release Year&nbsp;"
-                multiple
-                selction
-                icon="chevron down"
-              >
-                <Dropdown.Menu>
-                  <Dropdown.Item
-                    value="1992"
-                    content=<Checkbox label="1992" />
-                  />
-                </Dropdown.Menu>
-              </Dropdown>
-              <Dropdown
-                text="Genre&nbsp;"
-                multiple
-                selction
-                icon="chevron down"
-              >
-                <Dropdown.Menu>
-                  <Dropdown.Item
-                    value="Action"
-                    content=<Checkbox label="Action" defaultChecked />
-                  />
-                </Dropdown.Menu>
-              </Dropdown>
-              <Dropdown
-                text="Rating&nbsp;"
-                multiple
-                selction
-                defaultOpen
-                icon="chevron down"
-              >
-                <Dropdown.Menu>
-                  {ratingOptions.map((option) => (
-                    <Dropdown.Item key={option.value} {...option} />
-                  ))}
-                </Dropdown.Menu>
-              </Dropdown>
-            </Menu>
-            <List horizontal link className={classes.resultsFiltersControls}>
-              <List.Item as="a">
-                <List.Content>
-                  <Button basic color="black">
-                    CLEAR FILTERS
-                  </Button>
-                </List.Content>
-              </List.Item>
-              <List.Item as="a">
-                <List.Content>
-                  <Button basic color="black">
-                    APPLY FILTERS
-                  </Button>
-                </List.Content>
-              </List.Item>
-              <List.Item as="a">
-                <List.Icon name="cancel" />
-              </List.Item>
-            </List>
-          </div>
-        </div>
+              <Dropdown.Menu>
+                <Dropdown.Item value="1992" content=<Checkbox label="1992" /> />
+              </Dropdown.Menu>
+            </Dropdown>
+            <Dropdown text="Genre&nbsp;" multiple selction icon="chevron down">
+              <Dropdown.Menu>
+                <Dropdown.Item
+                  value="Action"
+                  content=<Checkbox label="Action" defaultChecked />
+                />
+              </Dropdown.Menu>
+            </Dropdown>
+            <Dropdown
+              text="Rating&nbsp;"
+              multiple
+              selction
+              defaultOpen
+              icon="chevron down"
+            >
+              <Dropdown.Menu>
+                {ratingOptions.map((option) => (
+                  <Dropdown.Item key={option.value} {...option} />
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Menu>
+          <Menu
+            secondary
+            link
+            stackable
+            floated="right"
+            className={classes.resultsFiltersControls}
+          >
+            <Menu.Item>
+              <Button
+                as="a"
+                basic
+                color="black"
+                compact
+                content="CLEAR FILTERS"
+              />
+            </Menu.Item>
+            <Menu.Item>
+              <Button
+                as="a"
+                basic
+                color="black"
+                compact
+                content="APPLY FILTERS"
+              />
+            </Menu.Item>
+            <Menu.Item
+              as="Button"
+              basic
+              color="black"
+              icon="cancel"
+            ></Menu.Item>
+          </Menu>
+        </Menu>
         <Container>
           <Card.Group doubling itemsPerRow={6} stackable>
             {results.map((result) => (
