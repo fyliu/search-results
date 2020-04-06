@@ -25,18 +25,19 @@ const useStyles = createUseStyles({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    height: "200px",
+    minHeight: "200px",
   },
-  headerTitle: {
+  headerTop: {
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
+    flexBasis: "1",
     justifyContent: "space-between",
-    height: "135px",
+    minHeight: "135px",
   },
   pageTitle: {
     fontFamily: "Arial Black, Gadget, sans-serif",
-    fontSize: "60px",
+    fontSize: "5vw",
     textTransform: "uppercase",
     textAlign: "left",
     padding: "20px",
@@ -46,6 +47,7 @@ const useStyles = createUseStyles({
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
+    flexBasis: "3",
     justifyContent: "flex-end",
     alignItems: "flex-end",
   },
@@ -61,20 +63,20 @@ const useStyles = createUseStyles({
     flexDirection: "row",
     flexWrap: "nowrap",
     justifyContent: "flex-end",
-    height: "35px",
+    minHeight: "35px",
   },
   resultsFiltersContainer: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    height: "75px",
+    minHeight: "75px",
   },
   resultsFiltersRow: {
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
     justifyContent: "space-between",
-    height: "35px",
+    minHeight: "35px",
   },
   bottom: {
     display: "flex",
@@ -144,10 +146,15 @@ function SearchResults() {
     <>
       <div className={classes.content}>
         <div className={classes.header}>
-          <div className={classes.headerTitle}>
+          <div className={classes.headerTop}>
             <h1 className={classes.pageTitle}>Search Results</h1>
             <div className={classes.headRight}>
-              <Menu pointing={true} secondary={true} className={classes.navBar}>
+              <Menu
+                pointing={true}
+                secondary={true}
+                stackable
+                className={classes.navBar}
+              >
                 <Menu.Item as="a" name="All" />
                 <Menu.Item as="a" icon="film" name="Movies" active />
                 <Menu.Item as="a" icon="tv" name="TV Shows" />
@@ -184,9 +191,15 @@ function SearchResults() {
             </Menu>
           </div>
         </div>
-        <div className={classes.resultsFiltersContainer}>
+        <div stackable className={classes.resultsFiltersContainer}>
           <div className={classes.resultsFiltersRow}>
-            <Menu secondary horizontal link className={classes.resultsFilters}>
+            <Menu
+              secondary
+              horizontal
+              link
+              stackable
+              className={classes.resultsFilters}
+            >
               <Dropdown
                 text="Release Year&nbsp;"
                 multiple
