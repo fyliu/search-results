@@ -180,10 +180,8 @@ function SearchResults() {
             ))}
           </Grid>
         </Container>
+        <Button>LOAD MORE</Button>
       </div>
-      {/*
-      <LoadMore />
-      */}
     </>
   );
 }
