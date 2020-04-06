@@ -9,6 +9,7 @@ import {
   Icon,
   List,
   Menu,
+  Responsive,
 } from "semantic-ui-react";
 import * as searchService from "../services/search.service";
 import ResultCard from "./ResultCard";
@@ -91,6 +92,38 @@ function SearchResults() {
   const classes = useStyles();
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const categoryOptions = [
+    {
+      text: "All",
+      value: "All",
+    },
+    {
+      text: "Movies",
+      value: "Movies",
+      icon: {
+        name: "film",
+      },
+      active: "true",
+    },
+    {
+      text: "TV Shows",
+      value: "TV Shows",
+      icon: {
+        name: "tv",
+      },
+    },
+    {
+      text: "Games & Apps",
+      value: "Games & Apps",
+      icon: {
+        name: "game",
+      },
+    },
+    {
+      text: "Other",
+      value: "Other",
+    },
+  ];
   const sortOptions = [
     {
       key: "Popularity",
@@ -149,7 +182,25 @@ function SearchResults() {
           <div className={classes.headerTop}>
             <h1 className={classes.pageTitle}>Search Results</h1>
             <div className={classes.headRight}>
-              <Menu
+              <Responsive
+                maxWidth={Responsive.onlyTablet.maxWidth}
+                as={Dropdown}
+                button
+                basic
+                color="black"
+                className="icon"
+                icon="bars"
+                direction="left"
+              >
+                <Dropdown.Menu>
+                  {categoryOptions.map((option) => (
+                    <Dropdown.Item key={option.value} {...option} />
+                  ))}
+                </Dropdown.Menu>
+              </Responsive>
+              <Responsive
+                as={Menu}
+                minWidth={Responsive.onlyComputer.minWidth}
                 pointing={true}
                 secondary={true}
                 stackable
@@ -170,7 +221,7 @@ function SearchResults() {
                   &nbsp; &nbsp;
                   <Button basic color="black" as="a" icon="th list"></Button>
                 </Menu.Item>
-              </Menu>
+              </Responsive>
             </div>
           </div>
           <div className={classes.resultsTools}>
