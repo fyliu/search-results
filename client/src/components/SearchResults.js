@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
-import { Button, Card, Container, Segment } from "semantic-ui-react";
+import { Button, Container, Segment } from "semantic-ui-react";
 import * as searchService from "../services/search.service";
 import Filterbar from "./Filterbar";
 import Headertext from "./Headertext";
 import Navbar from "./Navbar";
-import ResultCard from "./ResultCard";
+import ResultsList from "./ResultsList";
 import ResultsTools from "./ResultsTools";
 
 const useStyles = createUseStyles({
@@ -73,13 +73,7 @@ function SearchResults() {
           <ResultsTools showFilter={showFilter} setShowFilter={setShowFilter} />
         </Container>
         {showFilter && <Filterbar setShowFilter={setShowFilter} />}
-        <Container>
-          <Card.Group doubling itemsPerRow={6} stackable>
-            {results.map((result) => (
-              <ResultCard result={result} loading={loading} />
-            ))}
-          </Card.Group>
-        </Container>
+        <ResultsList results={results} loading={loading} />
         <div className={classes.bottom}>
           <Button basic color="black">
             LOAD MORE
