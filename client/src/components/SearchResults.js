@@ -5,7 +5,6 @@ import {
   Card,
   Container,
   Dropdown,
-  Header,
   Icon,
   Menu,
   Responsive,
@@ -13,6 +12,7 @@ import {
 } from "semantic-ui-react";
 import * as searchService from "../services/search.service";
 import Filterbar from "./Filterbar";
+import Headertext from "./Headertext";
 import ResultCard from "./ResultCard";
 
 const useStyles = createUseStyles({
@@ -34,36 +34,6 @@ const useStyles = createUseStyles({
     flexWrap: "nowrap",
     flexBasis: "1",
     justifyContent: "space-between",
-  },
-  pageTitle: {
-    fontFamily: "Arial Black, Gadget, sans-serif !important",
-    fontSize: "3vw !important",
-    textTransform: "uppercase !important",
-    textAlign: "left !important",
-    lineHeight: "0.85 !important",
-  },
-  pageTitleSmall: {
-    fontFamily: "Arial Black, Gadget, sans-serif !important",
-    fontSize: "4vw !important",
-    textTransform: "uppercase !important",
-    textAlign: "left !important",
-    lineHeight: "0.85 !important",
-  },
-  pageTitleTiny: {
-    fontFamily: "Arial Black, Gadget, sans-serif !important",
-    fontSize: "5vw !important",
-    textTransform: "uppercase !important",
-    textAlign: "left !important",
-    paddingTop: "10px !important",
-    lineHeight: "0.85 !important",
-  },
-  pageTitleExtraTiny: {
-    fontFamily: "Arial Black, Gadget, sans-serif !important",
-    fontSize: "6vw !important",
-    textTransform: "uppercase !important",
-    textAlign: "left !important",
-    paddingTop: "5px !important",
-    lineHeight: "0.85 !important",
   },
   headRight: {
     display: "flex",
@@ -189,40 +159,7 @@ function SearchResults() {
       <Container className={classes.content}>
         <Container className={classes.header}>
           <Segment basic className={classes.headerTop}>
-            <Responsive
-              minWidth={Responsive.onlyComputer.minWidth}
-              as={Header}
-              floated="left"
-              className={classes.pageTitle}
-            >
-              Search Results
-            </Responsive>
-            <Responsive
-              maxWidth={Responsive.onlyComputer.minWidth - 1}
-              minWidth={Responsive.onlyTablet.minWidth}
-              as={Header}
-              floated="left"
-              className={classes.pageTitleSmall}
-            >
-              Search Results
-            </Responsive>
-            <Responsive
-              maxWidth={Responsive.onlyMobile.maxWidth}
-              minWidth={Responsive.onlyMobile.minWidth + 1}
-              as={Header}
-              floated="left"
-              className={classes.pageTitleTiny}
-            >
-              Search Results
-            </Responsive>
-            <Responsive
-              maxWidth={Responsive.onlyMobile.minWidth}
-              as={Header}
-              floated="left"
-              className={classes.pageTitleExtraTiny}
-            >
-              Search Results
-            </Responsive>
+            <Headertext text="Search Results" />
             <Responsive
               maxWidth={Responsive.onlyTablet.maxWidth}
               as={Dropdown}
