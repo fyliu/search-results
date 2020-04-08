@@ -28,14 +28,6 @@ const useStyles = createUseStyles({
     flexBasis: "1",
     justifyContent: "space-between",
   },
-  headRight: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    flexBasis: "3",
-    justifyContent: "flex-end",
-    alignItems: "flex-end",
-  },
   bottom: {
     display: "flex",
     flexDirection: "row",
