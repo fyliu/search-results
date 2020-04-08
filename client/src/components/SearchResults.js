@@ -56,17 +56,6 @@ const useStyles = createUseStyles({
     flexWrap: "nowrap",
     justifyContent: "flex-end",
   },
-  resultsFiltersContainer: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-  resultsFiltersRow: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-between",
-  },
   bottom: {
     display: "flex",
     flexDirection: "row",

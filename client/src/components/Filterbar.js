@@ -2,7 +2,19 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import { Button, Checkbox, Dropdown, Menu, Segment } from "semantic-ui-react";
 
-const useStyles = createUseStyles({});
+const useStyles = createUseStyles({
+  resultsFiltersContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+  resultsFiltersRow: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
+  },
+});
 
 function Filterbar(props) {
   const classes = useStyles();
