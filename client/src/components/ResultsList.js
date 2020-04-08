@@ -1,6 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { Button, Card } from "semantic-ui-react";
+import { Button, Card, Segment } from "semantic-ui-react";
 import ResultCard from "./ResultCard";
 
 const useStyles = createUseStyles({
@@ -24,11 +24,11 @@ function ResultsList(props) {
           <ResultCard result={result} loading={loading} />
         ))}
       </Card.Group>
-      <div className={classes.bottom}>
+      <Segment basic className={classes.bottom}>
         <Button basic color="black">
           LOAD MORE
         </Button>
-      </div>
+      </Segment>
     </>
   );
 }
