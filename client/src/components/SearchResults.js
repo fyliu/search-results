@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
 import { Button, Container, Segment } from "semantic-ui-react";
 import * as searchService from "../services/search.service";
-import Filterbar from "./Filterbar";
-import Headertext from "./Headertext";
-import Navbar from "./Navbar";
+import FilterBar from "./FilterBar";
+import HeaderText from "./HeaderText";
+import NavBar from "./NavBar";
 import ResultsList from "./ResultsList";
 import ResultsTools from "./ResultsTools";
 
@@ -59,12 +59,12 @@ function SearchResults() {
       <Container className={classes.content}>
         <Container className={classes.header}>
           <Segment basic className={classes.headerTop}>
-            <Headertext text="Search Results" />
-            <Navbar />
+            <HeaderText text="Search Results" />
+            <NavBar />
           </Segment>
           <ResultsTools showFilter={showFilter} setShowFilter={setShowFilter} />
         </Container>
-        {showFilter && <Filterbar setShowFilter={setShowFilter} />}
+        {showFilter && <FilterBar setShowFilter={setShowFilter} />}
         <ResultsList results={results} loading={loading} />
         <div className={classes.bottom}>
           <Button basic color="black">
