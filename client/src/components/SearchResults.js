@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
-import {
-  Button,
-  Card,
-  Container,
-  Dropdown,
-  Icon,
-  Menu,
-  Segment,
-} from "semantic-ui-react";
+import { Button, Card, Container, Segment } from "semantic-ui-react";
 import * as searchService from "../services/search.service";
 import Filterbar from "./Filterbar";
 import Headertext from "./Headertext";
 import Navbar from "./Navbar";
 import ResultCard from "./ResultCard";
+import ResultsTools from "./ResultsTools";
 
 const useStyles = createUseStyles({
   content: {
@@ -43,12 +36,6 @@ const useStyles = createUseStyles({
     justifyContent: "flex-end",
     alignItems: "flex-end",
   },
-  resultsTools: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "flex-end",
-  },
   bottom: {
     display: "flex",
     flexDirection: "row",
@@ -63,18 +50,6 @@ function SearchResults() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showFilter, setShowFilter] = useState(true);
-  const sortOptions = [
-    {
-      key: "Popularity",
-      text: "Popularity",
-      value: "Popularity",
-    },
-    {
-      key: "Recent",
-      text: "Recent",
-      value: "Recent",
-    },
-  ];
 
   useEffect(() => {
     // call backend and set state
@@ -95,29 +70,7 @@ function SearchResults() {
             <Headertext text="Search Results" />
             <Navbar />
           </Segment>
-          <Segment basic className={classes.resultsTools}>
-            <Menu secondary horizontal link>
-              <Menu.Item
-                as="a"
-                onClick={() => {
-                  setShowFilter(!showFilter);
-                }}
-              >
-                Filter&nbsp;
-                <Icon name="chevron down" />
-              </Menu.Item>
-              <Menu.Item>
-                Sorted By: &nbsp;
-                <Dropdown
-                  inline
-                  pointing
-                  options={sortOptions}
-                  defaultValue={sortOptions[0].value}
-                  icon="chevron down"
-                />
-              </Menu.Item>
-            </Menu>
-          </Segment>
+          <ResultsTools showFilter={showFilter} setShowFilter={setShowFilter} />
         </Container>
         {showFilter && <Filterbar setShowFilter={setShowFilter} />}
         <Container>
