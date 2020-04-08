@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
-import { Button, Container, Segment } from "semantic-ui-react";
+import { Container, Segment } from "semantic-ui-react";
 import * as searchService from "../services/search.service";
 import FilterBar from "./FilterBar";
 import HeaderText from "./HeaderText";
@@ -27,13 +27,6 @@ const useStyles = createUseStyles({
     flexWrap: "nowrap",
     flexBasis: "1",
     justifyContent: "space-between",
-  },
-  bottom: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "flex-end",
-    justifyContent: "center",
-    height: "80px",
   },
 });
 
@@ -66,11 +59,6 @@ function SearchResults() {
         </Container>
         {showFilter && <FilterBar setShowFilter={setShowFilter} />}
         <ResultsList results={results} loading={loading} />
-        <div className={classes.bottom}>
-          <Button basic color="black">
-            LOAD MORE
-          </Button>
-        </div>
       </Container>
     </>
   );
